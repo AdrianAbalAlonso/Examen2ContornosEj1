@@ -53,19 +53,9 @@ public class ExamenContornos {
                                 finalDigitos--;
                             }
 
-                            while (i1 <= finalDigitos) {
-                                if (numeroDivisores % i1 == 0) {
-                                    cuentaDivisores++;
-                                }
-                                i1 += 2;
-                                if (cuentaDivisores == 2) {
-                                    i1 = finalDigitos + 1;
-                                }
-                            }
+                            cuentaDivisores = calculoNumerosDisores(i1, finalDigitos, numeroDivisores, cuentaDivisores);
 
-                            if (cuentaDivisores == 1) {
-                                SiEsPrimo = true;
-                            }
+                            trueSiEsPrimo(cuentaDivisores);
                         }
                     }
 
@@ -76,6 +66,25 @@ public class ExamenContornos {
             }
         }
 
+    }
+
+    public static int calculoNumerosDisores(int i1, int finalDigitos, int numeroDivisores, int cuentaDivisores) {
+        while (i1 <= finalDigitos) {
+            if (numeroDivisores % i1 == 0) {
+                cuentaDivisores++;
+            }
+            i1 += 2;
+            if (cuentaDivisores == 2) {
+                i1 = finalDigitos + 1;
+            }
+        }
+        return cuentaDivisores;
+    }
+
+    public static void trueSiEsPrimo(int cuentaDivisores) {
+        if (cuentaDivisores == 1) {
+            SiEsPrimo = true;
+        }
     }
 
     public static int pedirPorPantalla() {
