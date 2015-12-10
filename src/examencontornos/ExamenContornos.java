@@ -26,12 +26,8 @@ public class ExamenContornos {
         {
             int dig = 3;
             int numDigitos = 0;
-            if (dig <= 0) {
-                Scanner obx= new Scanner(System.in);
-        System.out.println("Ingrese como parámetro, un numero de digitos correcto (mayor que 0): ");
-        numDigitos=obx.nextInt();
-            }
-            
+            numDigitos = pedirPorPantalla(); //llamo al metodo que me pide por 
+
             for (int numeroDivisores = 1; numeroDivisores <= 99999; numeroDivisores++) {
                 int aux = numeroDivisores;
 
@@ -52,18 +48,18 @@ public class ExamenContornos {
                         } else {
                             int cuentaDivisores = 0;
                             int i1 = 1;
-                            int k = (numeroDivisores - 1) / 2;
-                            if (k % 2 == 0) {
-                                k--;
+                            int finalDigitos = (numeroDivisores - 1) / 2;
+                            if (finalDigitos % 2 == 0) {
+                                finalDigitos--;
                             }
 
-                            while (i1 <= k) {
+                            while (i1 <= finalDigitos) {
                                 if (numeroDivisores % i1 == 0) {
                                     cuentaDivisores++;
                                 }
                                 i1 += 2;
                                 if (cuentaDivisores == 2) {
-                                    i1 = k + 1;
+                                    i1 = finalDigitos + 1;
                                 }
                             }
 
@@ -79,10 +75,17 @@ public class ExamenContornos {
                 }
             }
         }
-        
 
-   
+    }
 
-}
-
+    public static int pedirPorPantalla() {
+        Scanner obx = new Scanner(System.in);
+        System.out.println("Ingrese como parámetro, un numero de digitos correcto (mayor que 0): ");
+        int numDigitos = obx.nextInt();
+        while (numDigitos <= 0) {
+            System.out.println("Ingrese como parámetro, un numero de digitos correcto (mayor que 0): ");
+            numDigitos = obx.nextInt();
+        }
+        return numDigitos;
+    }
 }
