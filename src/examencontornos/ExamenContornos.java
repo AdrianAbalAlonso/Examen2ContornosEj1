@@ -89,10 +89,10 @@ public class ExamenContornos {
 
     public static int pedirPorPantalla() {
         Scanner obx = new Scanner(System.in);
-        System.out.println("Ingrese como parámetro, un numero de digitos correcto (mayor que 0): ");
+        System.out.println("Introduce un numero de digitos mayor de 0");
         int numDigitos = obx.nextInt();
         while (numDigitos <= 0) {
-            System.out.println("Ingrese como parámetro, un numero de digitos correcto (mayor que 0): ");
+            System.out.println("Introduce un numero de digitos mayor de 0");
             numDigitos = obx.nextInt();
         }
         return numDigitos;
